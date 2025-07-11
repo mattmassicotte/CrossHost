@@ -1,5 +1,7 @@
 import Hummingbird
 
+import WebFinger
+
 struct WebfingerResourceDescriptor: ResponseEncodable {
 	struct Link: ResponseEncodable {
 		let rel: String
@@ -31,11 +33,11 @@ struct WebfingerController {
 		let user = components[0]
 		let server = components[1]
 
-		let descriptor = WebfingerResourceDescriptor(
+		let descriptor = WebFingerResource.Descriptor(
 			subject: String(user),
 			aliases: nil,
 			links: [
-				WebfingerResourceDescriptor.Link(
+				WebFingerResource.Descriptor.Link(
 					rel: "self",
 					type: "application/activity+json",
 					href: "http://127.0.0.1:8080/users/\(value)"

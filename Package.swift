@@ -18,6 +18,7 @@ let package = Package(
 			dependencies: [
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 				.product(name: "Hummingbird", package: "hummingbird"),
+				"WebFinger",
 			],
 			path: "Sources/App"
 		),
@@ -28,6 +29,7 @@ let package = Package(
 				.product(name: "HummingbirdTesting", package: "hummingbird")
 			],
 			path: "Tests/AppTests"
-		)
+		),
+		.target(name: "WebFinger")
 	]
 )
