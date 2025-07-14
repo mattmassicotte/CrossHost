@@ -1,4 +1,5 @@
 public struct WebFingerResource {
+	public static let contentType = "application/jrd+json"
 }
 
 extension WebFingerResource {
