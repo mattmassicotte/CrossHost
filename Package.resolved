@@ -1,0 +1,24 @@
+{
+  "originHash" : "091bec1f6081739f28b7168451e1584c8e92b632987b10f98e78c966b4a941f1",
+  "pins" : [
+    {
+      "identity" : "nodeinfo",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattmassicotte/NodeInfo",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0fc6310678ec2c733ae8e1d867b2b78ad973f3f0"
+      }
+    },
+    {
+      "identity" : "webfinger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattmassicotte/WebFinger",
+      "state" : {
+        "branch" : "main",
+        "revision" : "adb10c5a03633f58afff75b3f0fff378c3c44f44"
+      }
+    }
+  ],
+  "version" : 3
+}
