@@ -11,11 +11,11 @@ public protocol HTTPResponding {
 }
 
 extension HTTPResponding {
-	func jsonResponse<T: Encodable>(_ value: T) async throws -> Response {
+	public func jsonResponse<T: Encodable>(_ value: T) async throws -> Response {
 		try await jsonResponse(value, headers: [.contentType: "application/json"])
 	}
 
-	func queryParameter(for key: String) -> String? {
+	public func queryParameter(for key: String) -> String? {
 		let values = queryParameters(for: key)
 
 		if values.isEmpty {
