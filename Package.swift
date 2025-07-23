@@ -9,13 +9,18 @@ let package = Package(
 		.library(name: "SocialServer", targets: ["SocialServer"])
 	],
 	dependencies: [
+		.package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
 		.package(url: "https://github.com/mattmassicotte/NodeInfo", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/WebFinger", branch: "main"),
 	],
 	targets: [
 		.target(
 			name: "SocialServer",
-			dependencies: ["NodeInfo", "WebFinger"]
+			dependencies: [
+				.product(name: "HTTPTypes", package: "swift-http-types"),
+				"NodeInfo",
+				"WebFinger",
+			]
 		),
 		.testTarget(
 			name: "SocialServerTests",
