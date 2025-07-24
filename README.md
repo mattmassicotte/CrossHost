@@ -20,7 +20,7 @@ Services:
 
 Implementations:
 
-- [AWS lambda](https://github.com/mattmassicotte/SocialServerLambda)
+- [AWS lambda](https://github.com/mattmassicotte/CrossHostAWS)
 
 > [!WARNING]
 > This project is just in the learning/toy phase.
