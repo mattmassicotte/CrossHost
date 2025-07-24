@@ -5,13 +5,13 @@
 
 </div>
 
-# SocialServer
+# CrossHost
 
 Multi-platform social service.
 
-SocialServer (real name forthcoming?) is a Swift-based server platform that abstracts multiple underlying social services. The goal here is interoperability with low-cost hosting.
+CrossHost is a Swift-based server platform that abstracts multiple underlying social services. The goal here is interoperability with low-cost hosting.
 
-Optimizing for cost is tricky, because different people have access to different hosting arrangements. This is why SocialServer is implemented as a library. The idea is to abstract out enough of the underlying dependencies so that multiple concrete hosting implementations are supported.
+Optimizing for cost is tricky, because different people have access to different hosting arrangements. This is why CrossHost is implemented as a library. The idea is to abstract out enough of the underlying dependencies so that multiple concrete hosting implementations are supported.
 
 Services:
 
@@ -29,7 +29,7 @@ Implementations:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mattmassicotte/SocialServer", branch: "main")
+    .package(url: "https://github.com/mattmassicotte/CrossHost", branch: "main")
 ]
 ```
 
@@ -43,11 +43,11 @@ I prefer indentation with tabs for improved accessibility. But, I'd rather you u
 
 By participating in this project you agree to abide by the [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
 
-[build status]: https://github.com/mattmassicotte/SocialServer/actions
-[build status badge]: https://github.com/mattmassicotte/SocialServer/workflows/CI/badge.svg
-[platforms]: https://swiftpackageindex.com/mattmassicotte/SocialServer
-[platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fmattmassicotte%2FSocialServer%2Fbadge%3Ftype%3Dplatforms
-[documentation]: https://swiftpackageindex.com/mattmassicotte/SocialServer/main/documentation
+[build status]: https://github.com/mattmassicotte/CrossHost/actions
+[build status badge]: https://github.com/mattmassicotte/CrossHost/workflows/CI/badge.svg
+[platforms]: https://swiftpackageindex.com/mattmassicotte/CrossHost
+[platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fmattmassicotte%2FCrossHost%2Fbadge%3Ftype%3Dplatforms
+[documentation]: https://swiftpackageindex.com/mattmassicotte/CrossHost/main/documentation
 [documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
 [matrix]: https://matrix.to/#/%23chimehq%3Amatrix.org
 [matrix badge]: https://img.shields.io/matrix/chimehq%3Amatrix.org?label=Matrix

@@ -1,8 +1,8 @@
 import Testing
 
-import SocialServer
+import CrossHost
 
-struct SocialServerTests {
+struct CrossHostTests {
 	@Test func exampleTest() async throws {
 		#expect(true)
 	}

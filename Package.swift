@@ -3,10 +3,10 @@
 import PackageDescription
 
 let package = Package(
-	name: "SocialServer",
+	name: "CrossHost",
 	platforms: [.macOS(.v14)],
 	products: [
-		.library(name: "SocialServer", targets: ["SocialServer"])
+		.library(name: "CrossHost", targets: ["CrossHost"])
 	],
 	dependencies: [
 		.package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
@@ -15,7 +15,7 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "SocialServer",
+			name: "CrossHost",
 			dependencies: [
 				.product(name: "HTTPTypes", package: "swift-http-types"),
 				"NodeInfo",
@@ -23,8 +23,8 @@ let package = Package(
 			]
 		),
 		.testTarget(
-			name: "SocialServerTests",
-			dependencies: ["SocialServer"]
+			name: "CrossHostTests",
+			dependencies: ["CrossHost"]
 		)
 	]
 )
