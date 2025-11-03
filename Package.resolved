@@ -1,5 +1,5 @@
 {
-  "originHash" : "c4e7586657b85331dc4cf2abd3822825068fdaee1c79d00d2499fa31ae39dbc4",
+  "originHash" : "fa694b90b09db402c4a64f9661a4dd68c6b46a16b0d688a53aa6701e121ea7c5",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -20,12 +20,21 @@
       }
     },
     {
+      "identity" : "jsonld",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattmassicotte/JSONLD",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6f79d4d59972b9723565c7272d87819002b09ff5"
+      }
+    },
+    {
       "identity" : "nodeinfo",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattmassicotte/NodeInfo",
       "state" : {
         "branch" : "main",
-        "revision" : "0fc6310678ec2c733ae8e1d867b2b78ad973f3f0"
+        "revision" : "9a6c58febd924b463acee04da8c47367bc6be6a8"
       }
     },
     {
