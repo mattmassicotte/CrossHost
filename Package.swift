@@ -9,7 +9,7 @@ let package = Package(
 		.library(name: "CrossHost", targets: ["CrossHost"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
+		.package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
 		.package(url: "https://github.com/mattmassicotte/NodeInfo", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/WebFinger", branch: "main"),
 	],
@@ -17,7 +17,7 @@ let package = Package(
 		.target(
 			name: "CrossHost",
 			dependencies: [
-				.product(name: "HTTPTypes", package: "swift-http-types"),
+				.product(name: "Hummingbird", package: "hummingbird"),
 				"NodeInfo",
 				"WebFinger",
 			]
