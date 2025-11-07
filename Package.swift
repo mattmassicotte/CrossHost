@@ -13,6 +13,8 @@ let package = Package(
 		.package(url: "https://github.com/mattmassicotte/NodeInfo", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/WebFinger", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/JSONLD", branch: "main"),
+		.package(url: "https://github.com/swift-libp2p/swift-bases", from: "0.2.0"),
+		.package(url: "https://github.com/apple/swift-crypto.git", from: "3.0.0"),
 	],
 	targets: [
 		.target(
@@ -28,6 +30,8 @@ let package = Package(
 				"NodeInfo",
 				"WebFinger",
 				"ActivityPub",
+				.product(name: "BaseX", package: "swift-bases"),
+				.product(name: "Crypto", package: "swift-crypto"),
 			]
 		),
 		.testTarget(
