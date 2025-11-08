@@ -33,6 +33,29 @@ dependencies: [
 ]
 ```
 
+## Handy Tools
+
+- https://activitypub.academy
+- https://pdsls.dev
+
+### Encryption
+
+Mastodon needs RSA256, and ATProto requires P256.
+
+```
+openssl ecparam -genkey -name prime256v1 -noout -out ec256-key.pem
+```
+
+### Domain Configuration
+
+`dig _atproto.YOUR_DOMAIN -t txt`
+
+### Initiate Bluesky crawl
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"hostname": "YOUR_DOMAIN"}' -i "https://bsky.network/xrpc/com.atproto.sync.requestCrawl"
+```
+
 ## Contribution and Collaboration
 
 I would love to hear from you! Issues or pull requests work great. A [Discord server][discord] is also available for live help, but I have a strong bias towards answering in the form of documentation.
