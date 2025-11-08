@@ -16,6 +16,7 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 		RouteCollection(context: Context.self)
 			.get("/.well-known/did.json", use: getRoot)
 			.get("/.well-known/users/:id/did.json", use: get)
+			.get("/.well-known/atproto-did", use: getATProtoDID)
 	}
 
 	public static func DIDDocument(with host: String, key: String) throws -> DIDWeb {
@@ -73,6 +74,18 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 		encoder.outputFormatting = .withoutEscapingSlashes
 
 		return try encoder.encode(didDoc, from: request, context: context)
+	}
+
+	func getATProtoDID(request: Request, context: some RequestContext) async throws -> Response {
+		let data = "did:web:\(configuration.host)\n"
+
+		return Response(
+			status: .ok,
+			headers: [
+				.contentType: "text/plain; charset=utf-8"
+			],
+			body: .init(byteBuffer: ByteBuffer(string: data))
+		)
 	}
 
 	func get(request: Request, context: some RequestContext) async throws -> Response {
