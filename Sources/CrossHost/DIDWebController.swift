@@ -1,6 +1,6 @@
 import Foundation
 
-import BaseX
+import ATProto
 import Crypto
 import Hummingbird
 import JSONLD
@@ -22,13 +22,8 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 	public static func DIDDocument(with host: String, key: String) throws -> DIDWeb {
 		let didPrivateKey = try P256.Signing.PrivateKey(pemRepresentation: key)
 		let pubKey = didPrivateKey.publicKey
-		var keyBytes = pubKey.compressedRepresentation
-
-		// 0x80, 0x24 => 0x1200 multicodec value for "p256-pub"
-		keyBytes.append(contentsOf: [0x80, 0x24])
-
-		// pre-pend with the "z" for multibase encoding
-		let encodedKey = "z" + BaseX.encode(keyBytes, into: .base58BTC)
+		let keyBytes = pubKey.compressedRepresentation
+		let encodedKey = keyBytes.multibaseEncodedP256Key
 
 		return DIDWeb(
 			context: .list(

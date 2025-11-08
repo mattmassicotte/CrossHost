@@ -24,13 +24,19 @@ let package = Package(
 			]
 		),
 		.target(
+			name: "ATProto",
+			dependencies: [
+				.product(name: "BaseX", package: "swift-bases"),
+			]
+		),
+		.target(
 			name: "CrossHost",
 			dependencies: [
 				.product(name: "Hummingbird", package: "hummingbird"),
 				"NodeInfo",
 				"WebFinger",
 				"ActivityPub",
-				.product(name: "BaseX", package: "swift-bases"),
+				"ATProto",
 				.product(name: "Crypto", package: "swift-crypto"),
 			]
 		),
