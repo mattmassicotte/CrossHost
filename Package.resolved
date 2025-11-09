@@ -1,5 +1,5 @@
 {
-  "originHash" : "9c9cf4eff6f3317be9ed1eb34dad3c34f52c7cefd986e2e4418934e64484f268",
+  "originHash" : "d6790424562c90165bd2a0f46031bd4354004bdfdc6ddbd8be71db46b39b522f",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "efb14fec9f79f3f8d4f2a6c0530303efb6fe6533",
         "version" : "1.29.1"
+      }
+    },
+    {
+      "identity" : "cbor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/thecoolwinter/CBOR",
+      "state" : {
+        "revision" : "3484328675464b69553221ea5634412db36a0d4a",
+        "version" : "1.1.1"
       }
     },
     {

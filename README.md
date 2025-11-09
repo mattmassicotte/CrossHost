@@ -37,6 +37,7 @@ dependencies: [
 
 - https://activitypub.academy
 - https://pdsls.dev
+- CID Decoder: https://cid.ipfs.tech
 
 ### Encryption
 

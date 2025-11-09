@@ -6,7 +6,7 @@ let package = Package(
 	name: "CrossHost",
 	platforms: [.macOS(.v14)],
 	products: [
-		.library(name: "CrossHost", targets: ["CrossHost", "ActivityPub"])
+		.library(name: "CrossHost", targets: ["CrossHost", "ActivityPub", "ATProto"])
 	],
 	dependencies: [
 		.package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
@@ -15,18 +15,22 @@ let package = Package(
 		.package(url: "https://github.com/mattmassicotte/JSONLD", branch: "main"),
 		.package(url: "https://github.com/swift-libp2p/swift-bases", from: "0.2.0"),
 		.package(url: "https://github.com/apple/swift-crypto.git", from: "3.0.0"),
+
+		.package(url: "https://github.com/thecoolwinter/CBOR", from: "1.1.1"),
 	],
 	targets: [
 		.target(
 			name: "ActivityPub",
 			dependencies: [
 				"JSONLD",
+				"CBOR"
 			]
 		),
 		.target(
 			name: "ATProto",
 			dependencies: [
 				.product(name: "BaseX", package: "swift-bases"),
+				.product(name: "Base32", package: "swift-bases"),
 			]
 		),
 		.target(
@@ -43,6 +47,10 @@ let package = Package(
 		.testTarget(
 			name: "CrossHostTests",
 			dependencies: ["CrossHost"]
-		)
+		),
+		.testTarget(
+			name: "ATProtoTests",
+			dependencies: ["ATProto", "CBOR"]
+		),
 	]
 )
