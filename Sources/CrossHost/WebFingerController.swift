@@ -16,7 +16,7 @@ public struct WebFingerController<Context: RequestContext>: Sendable {
 
 	public func get(request: Request, context: Context) async throws -> Response {
 		guard
-			let resource: String = context.parameters.get("resource"),
+			let resource: String = request.uri.queryParameters.get("resource"),
 			let query = WebFingerResource.Query(resource: resource)
 		else {
 			return Response(status: .badRequest, headers: [:])
