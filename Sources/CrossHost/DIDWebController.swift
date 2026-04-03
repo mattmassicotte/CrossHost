@@ -71,7 +71,7 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 		return Response(
 			status: .ok,
 			headers: [
-				.contentType: "text/plain; charset=utf-8"
+				.contentType: "text/plain"
 			],
 			body: .init(byteBuffer: ByteBuffer(string: data))
 		)
