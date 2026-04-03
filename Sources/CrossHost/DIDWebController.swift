@@ -47,16 +47,10 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 			verificationMethod: [
 				DIDWeb.VerificationMethod(
 					controller: "did:web:\(host)",
-					id: "\(host)#atproto",
+					id: "did:web:\(host)#atproto",
 					type: "Multikey",
 					publicKeyMultibase: "did:key:\(encodedKey)"
 				),
-				DIDWeb.VerificationMethod(
-					controller: "did:web:\(host)",
-					id: "did:web:\(host)#signing",
-					type: "Multikey",
-					publicKeyMultibase: "did:key:\(encodedKey)"
-				)
 			]
 		)
 	}
