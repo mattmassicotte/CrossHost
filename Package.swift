@@ -6,13 +6,14 @@ let package = Package(
 	name: "CrossHost",
 	platforms: [.macOS(.v14)],
 	products: [
-		.library(name: "CrossHost", targets: ["CrossHost", "ActivityPub", "ATProto"])
+		.library(name: "CrossHost", targets: ["CrossHost", "ActivityPub", "ATProto"]),
 	],
 	dependencies: [
 		.package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
 		.package(url: "https://github.com/mattmassicotte/NodeInfo", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/WebFinger", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/JSONLD", branch: "main"),
+		.package(url: "https://github.com/mattmassicotte/ATAT", branch: "main"),
 		.package(url: "https://github.com/swift-libp2p/swift-bases", from: "0.2.0"),
 		.package(url: "https://github.com/apple/swift-crypto.git", from: "3.0.0"),
 
@@ -29,6 +30,7 @@ let package = Package(
 		.target(
 			name: "ATProto",
 			dependencies: [
+				"ATAT",
 				.product(name: "BaseX", package: "swift-bases"),
 				.product(name: "Base32", package: "swift-bases"),
 			]

@@ -1,5 +1,5 @@
 {
-  "originHash" : "d6790424562c90165bd2a0f46031bd4354004bdfdc6ddbd8be71db46b39b522f",
+  "originHash" : "6660f53cc520acecc7256e1fdf2f35d428da30212ae8193d2ed0abef45c8b06d",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -11,12 +11,21 @@
       }
     },
     {
+      "identity" : "atat",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattmassicotte/ATAT",
+      "state" : {
+        "branch" : "main",
+        "revision" : "897bde61fa0c0f7c45c1b0e0adeda78278083c85"
+      }
+    },
+    {
       "identity" : "cbor",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/thecoolwinter/CBOR",
       "state" : {
-        "revision" : "3484328675464b69553221ea5634412db36a0d4a",
-        "version" : "1.1.1"
+        "revision" : "f0c4cb21ec8cf403a11b3af55f1e548ab75d24f1",
+        "version" : "1.1.2"
       }
     },
     {
