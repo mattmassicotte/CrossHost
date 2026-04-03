@@ -72,7 +72,7 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 	}
 
 	func getATProtoDID(request: Request, context: some RequestContext) async throws -> Response {
-		let data = "did:web:\(configuration.host)\n"
+		let data = "did:web:\(configuration.host)"
 
 		return Response(
 			status: .ok,
