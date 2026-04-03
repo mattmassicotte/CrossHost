@@ -16,6 +16,8 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 	public var endpoints: RouteCollection<Context> {
 		RouteCollection(context: Context.self)
 			.get("/xrpc/com.atproto.repo.describeRepo", use: repoDescribeRepo)
+			.get("/xrpc/com.atproto.repo.getRecord", use: repoGetRecord)
+			.get("/xrpc/com.atproto.repo.listRecords", use: repoListRecords)
 			.get("/xrpc/com.atproto.server.describeServer", use: serverDescribeServer)
 			.get("/xrpc/_health", use: health)
 			.get("/xrpc/:nsid", use: getResource)
@@ -39,7 +41,7 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 			handle: configuration.host,
 			did: "did:web:\(configuration.host)",
 			didDoc: didDoc,
-			collections: [],
+			collections: ["app.bsky.actor.profile"],
 			handleIsCorrect: true
 		)
 
@@ -59,6 +61,28 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 		return try context.jsonResponse(content, for: request)
 	}
 
+	func repoGetRecord(request: Request, context: some RequestContext) async throws -> Response {
+		let repo = try request.uri.queryParameters.require("repo")
+		let collection = try request.uri.queryParameters.require("collection")
+		let rkey = try request.uri.queryParameters.require("rkey")
+		let cid = request.uri.queryParameters.get("cid") ?? "<none>"
+
+		context.logger.info("repoGetRecord: \(repo), \(collection), \(rkey), \(cid)  \(request)")
+
+		return Response(status: .notImplemented)
+	}
+
+	func repoListRecords(request: Request, context: some RequestContext) async throws -> Response {
+		let repo = try request.uri.queryParameters.require("repo")
+		let collection = try request.uri.queryParameters.require("collection")
+		let limit = request.uri.queryParameters.get("limit") ?? "50"
+		let cursor = request.uri.queryParameters.get("cursor") ?? "<none>"
+		let reverse = request.uri.queryParameters.get("reverse") ?? "false"
+
+		context.logger.info("repoListRecords: \(repo), \(collection), \(limit), \(cursor) \(reverse) \(request)")
+
+		return Response(status: .notImplemented)
+	}
 	func health(request: Request, context: some RequestContext) async throws -> Response {
 		Response(status: .ok)
 	}
@@ -70,5 +94,4 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 	private func createResource(request: Request, context: some RequestContext) async throws -> Response {
 		Response(status: .notImplemented)
 	}
-
 }
