@@ -49,7 +49,7 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 					controller: "did:web:\(host)",
 					id: "did:web:\(host)#atproto",
 					type: "Multikey",
-					publicKeyMultibase: "did:key:\(encodedKey)"
+					publicKeyMultibase: encodedKey
 				),
 			]
 		)
@@ -71,7 +71,7 @@ public struct DIDWebController<Context: RequestContext>: Sendable {
 		return Response(
 			status: .ok,
 			headers: [
-				.contentType: "text/plain"
+				.contentType: "text/plain; charset=utf-8"
 			],
 			body: .init(byteBuffer: ByteBuffer(string: data))
 		)
