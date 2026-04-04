@@ -18,6 +18,7 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 			.get("/xrpc/com.atproto.repo.describeRepo", use: repoDescribeRepo)
 			.get("/xrpc/com.atproto.repo.getRecord", use: repoGetRecord)
 			.get("/xrpc/com.atproto.repo.listRecords", use: repoListRecords)
+			.get("/xrpc/com.atproto.sync.listRepos", use: syncListRepos)
 			.get("/xrpc/com.atproto.server.describeServer", use: serverDescribeServer)
 			.get("/xrpc/_health", use: health)
 			.get("/xrpc/:nsid", use: getResource)
@@ -81,8 +82,36 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 
 		context.logger.info("repoListRecords: \(repo), \(collection), \(limit), \(cursor) \(reverse) \(request)")
 
+		let did = "did:web:\(configuration.host)"
+
+		if repo == did && collection == ATAT.App.Bsky.Actor.Profile.nsid {
+			let cid = try CID(Data("abc".utf8))
+			let profile = App.Bsky.Actor.Profile(
+				displayName: "Massimo Pacoli",
+				description: "Renounded Egyptologist",
+				createdAt: Date(timeIntervalSince1970: 1761709682229089)
+			)
+
+			let output = Com.ATProto.Repo.ListRecords.Output(
+				cursor: nil,
+				records: [
+					.init(
+						uri: "at://\(did)/app.bsky.actor.profile/self",
+						cid: cid.baseEncodedString(),
+						value: .profile(profile)
+					)
+				]
+			)
+			return try context.jsonResponse(output, for: request)
+		}
+
 		return Response(status: .notImplemented)
 	}
+
+	func syncListRepos(request: Request, context: some RequestContext) async throws -> Response {
+		return Response(status: .notImplemented)
+	}
+
 	func health(request: Request, context: some RequestContext) async throws -> Response {
 		Response(status: .ok)
 	}

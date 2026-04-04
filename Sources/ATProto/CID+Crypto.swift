@@ -1,6 +1,10 @@
-#if canImport(CryptoKit)
-import CryptoKit
 import Foundation
+
+#if canImport(Crypto)
+import Crypto
+#elseif canImport(CryptoKit)
+import CryptoKit
+#endif
 
 extension CID {
 	public init(_ data: Data) throws {
@@ -16,5 +20,3 @@ extension CID {
 		}
 	}
 }
-
-#endif
