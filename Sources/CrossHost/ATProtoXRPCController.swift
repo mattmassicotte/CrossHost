@@ -85,7 +85,7 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 		let did = "did:web:\(configuration.host)"
 
 		if repo == did && collection == ATAT.App.Bsky.Actor.Profile.nsid {
-			let cid = try CID(Data("abc".utf8))
+			let cid = try ATProtoCID(data: Data("abc".utf8))
 			let profile = App.Bsky.Actor.Profile(
 				displayName: "Massimo Pacoli",
 				description: "Renounded Egyptologist",
@@ -97,7 +97,7 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 				records: [
 					.init(
 						uri: "at://\(did)/app.bsky.actor.profile/self",
-						cid: cid.baseEncodedString(),
+						cid: cid,
 						value: .profile(profile)
 					)
 				]

@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.1
 
 import PackageDescription
 
@@ -13,7 +13,7 @@ let package = Package(
 		.package(url: "https://github.com/mattmassicotte/NodeInfo", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/WebFinger", branch: "main"),
 		.package(url: "https://github.com/mattmassicotte/JSONLD", branch: "main"),
-		.package(url: "https://github.com/mattmassicotte/ATAT", branch: "main"),
+		.package(url: "https://github.com/mattmassicotte/ATAT", branch: "main", traits: ["CIDCoding", "SwiftCrypto"]),
 		.package(url: "https://github.com/swift-libp2p/swift-bases", from: "0.2.0"),
 		.package(url: "https://github.com/apple/swift-crypto.git", from: "3.0.0"),
 
@@ -31,8 +31,9 @@ let package = Package(
 			name: "ATProto",
 			dependencies: [
 				"ATAT",
+				"CBOR",
+				.product(name: "Crypto", package: "swift-crypto"),
 				.product(name: "BaseX", package: "swift-bases"),
-				.product(name: "Base32", package: "swift-bases"),
 			]
 		),
 		.target(
