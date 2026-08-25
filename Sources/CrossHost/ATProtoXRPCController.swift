@@ -28,7 +28,13 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 	func repoDescribeRepo(request: Request, context: some RequestContext) async throws -> Response {
 		let repo = try request.uri.queryParameters.require("repo")
 
-		context.logger.info("repoDescribeRepo: \(repo) \(request)")
+		context.logger.info(
+			"repoDescribeRepo: \(repo)",
+			metadata: [
+				"request.uri": "\(request.uri)",
+				"request.headers": "\(request.headers)",
+			]
+		)
 
 		guard repo == "did:web:\(configuration.host)" || repo == configuration.host else {
 			context.logger.warning("Unexpected repo")
@@ -68,7 +74,13 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 		let rkey = try request.uri.queryParameters.require("rkey")
 		let cid = request.uri.queryParameters.get("cid") ?? "<none>"
 
-		context.logger.info("repoGetRecord: \(repo), \(collection), \(rkey), \(cid)  \(request)")
+		context.logger.info(
+			"repoGetRecord: \(repo), \(collection), \(rkey), \(cid)",
+			metadata: [
+				"request.uri": "\(request.uri)",
+				"request.headers": "\(request.headers)",
+			]
+		)
 
 		return Response(status: .notImplemented)
 	}
@@ -80,7 +92,13 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 		let cursor = request.uri.queryParameters.get("cursor") ?? "<none>"
 		let reverse = request.uri.queryParameters.get("reverse") ?? "false"
 
-		context.logger.info("repoListRecords: \(repo), \(collection), \(limit), \(cursor) \(reverse) \(request)")
+		context.logger.info(
+			"repoListRecords: \(repo), \(collection), \(limit), \(cursor) \(reverse)",
+			metadata: [
+				"request.uri": "\(request.uri)",
+				"request.headers": "\(request.headers)",
+			]
+		)
 
 		let did = "did:web:\(configuration.host)"
 
@@ -109,7 +127,7 @@ public struct ATProtoXRPCController<Context: RequestContext>: Sendable {
 	}
 
 	func syncListRepos(request: Request, context: some RequestContext) async throws -> Response {
-		return Response(status: .notImplemented)
+		Response(status: .notImplemented)
 	}
 
 	func health(request: Request, context: some RequestContext) async throws -> Response {
